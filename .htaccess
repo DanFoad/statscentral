@@ -1,0 +1,21 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteRule ^champions/(20[0-9]{2})/(\w+)/(\w+)/?$ champions.php?league=$2&year=$1&split=$3 [L]
+RewriteRule ^champions/(20[0-9]{2})/(\w+)/?$ champions.php?league=$2&year=$1 [L]
+RewriteRule ^champions/(20[0-9]{2})/?$ champions.php?year=$1 [L]
+RewriteRule ^champions/(\w+)/?$ champions.php?league=$1 [L]
+
+RewriteRule ^champion/(\w+)/(\w+)/(20[0-9]{2})/(\w+)/?$ champion.php?champion=$1&region=$2&year=$3&split=$4 [L]
+RewriteRule ^champion/(\w+)/(\w+)/(20[0-9]{2})/?$ champion.php?champion=$1&region=$2&year=$3 [L]
+RewriteRule ^champion/(\w+)/(20[0-9]{2})/?$ champion.php?champion=$1&year=$2 [L]
+RewriteRule ^champion/(\w+)/(\w+)/?$ champion.php?champion=$1&region=$2 [L]
+RewriteRule ^champion/(\w+)/?$ champion.php?champion=$1 [L]
+
+RewriteRule ^players/(\w+)/(20[0-9]{2})/([a-zA-Z0-9_]+)/?$ players.php?region=$1&year=$2&split=$3 [L]
+RewriteRule ^players/(\w+)/(20[0-9]{2})/?$ players.php?region=$1&year=$2 [L]
+RewriteRule ^players/(20[0-9]{2})/?$ players.php?year=$1 [L]
+RewriteRule ^players/(\w+)/?$ players.php?region=$1 [L]
+
+RewriteRule ^events/(20[0-9]{2})/?$ events.php?year=$1 [L]
+RewriteRule ^(\w+)/?$ $1.php
